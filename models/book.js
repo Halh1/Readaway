@@ -18,13 +18,13 @@ const bookSchema = new Schema({
         },
         required: true
     },
-    hardcover: {
-        type: Boolean,
-        default: true
-    },
     genre: {
         type: String,
         enum: ['YA', 'Fantasy', 'Historical Fiction', 'Thriller', 'Mystery', 'Graphic Novel', 'Non-Fiction'],  
+    },
+    hardcover: {
+        type: Boolean,
+        default: true
     }
 });
 

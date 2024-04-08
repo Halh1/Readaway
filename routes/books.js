@@ -14,5 +14,9 @@ router.get('/new', booksCtrl.new);
 
 router.post('/new', booksCtrl.create);
 
+router.get('/:id', booksCtrl.show);
+
+
+
 
 module.exports = router;

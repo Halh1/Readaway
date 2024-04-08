@@ -9,13 +9,13 @@
         </tr>
     </thead>
     <tbody>
-        <% books.forEach(function(b) { %>
+       <% books.forEach(function(b) { %>
             <tr>
                 <td><%= b.title %></td>
                 <td><%= b.publishYear %></td>
                 <td><a href="/books/<%= b._id %>">Details</a></td>
             </tr>
-       <% }); %>
+       <% }); %> 
     </tbody>
 </table>
 

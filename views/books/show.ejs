@@ -1,3 +1,16 @@
 <%- include('../partials/header') %>
 
+<section id="show-page">
+    <div>Title: </div>
+    <div><%= book.title %></div>
+    <div>Author: </div>
+    <div><%= book.author %></div>
+    <div>Published Year: </div>
+    <div><%= book.publishYear %></div>
+    <div>Genre: </div>
+    <div><%= book.genre %></div>
+    <div>Hardcover: </div>
+    <div><%= book.hardcover ? 'Yes' : 'No' %></div>
+</section>
+
 <%- include('../partials/footer') %>

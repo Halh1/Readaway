@@ -13,4 +13,60 @@
     <div><%= book.hardcover ? 'Yes' : 'No' %></div>
 </section>
 
+<!--------Adding book status update
+<form action="/books/<%= book.id %>/readStatus=PUT" method="POST">
+    <label for="readStatus">Reading Status</label>
+    <select>
+        <option value="Current Read">Current Read</option>
+        <option value="To Be Read">To Be Read</option>
+        <option value="Completed">Completed</option>
+    </select>
+    <button type="submit">Status</button>
+</form>
+
+Considering to include the status option with each comment left instead.
+-->
+
+
+<!--Add comment feature-->
+<br><br><br><h3>A penny for your thoughts...</h3>
+<form id="add-comment-form" method="POST"
+    action="/books/<%= book._id %>/comments">
+    <label></label>
+    <textarea name="content"></textarea>
+    <label>Reading Status:</label>
+    <select name="readStatus">
+      <option value="Current Read">Current Read</option>
+      <option value="To Be Read">To Be Read</option>
+      <option value="Completed">Completed</option>
+    </select>
+    <input type="submit" value="Add Comment">
+  </form>
+
+<!---<%= book._id %>/-->
+
+<table>
+    <thead>
+        <tr>
+            <th>User</th>
+            <th>Reading Status</th>
+            <th>Commentary</th>
+            <th>Date</th>
+            <th></th>
+        </tr>
+    </thead>
+</table>
+<tbody>
+
+    <% book.comments.forEach(function(c) { %>
+        
+        <tr>
+            <td class="comment-user"><img src=" <%= c.userAvatar %>" alt="avatar" referrerpolicy="no-referrer"><%= c.userName %></td>
+            <td><%= c.readStatus %></td>
+            <td><%= c.content %></td>
+            <td><%= c.createdAt.toLocaleDateString() %></td>
+            <td></td>
+        </tr>
+        <% }); %>
+</tbody>
 <%- include('../partials/footer') %>

@@ -16,6 +16,8 @@ router.post('/new', booksCtrl.create);
 
 router.get('/:id', booksCtrl.show);
 
+//router.post('/:id/readStatus', booksCtrl.addStatus);
+
 
 
 

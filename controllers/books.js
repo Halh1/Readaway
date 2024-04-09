@@ -4,7 +4,8 @@ module.exports = {
     index,
     new: newBook,
     create,
-    show
+    show,
+   // addStatus
 }
 
 async function index(req, res) {
@@ -12,7 +13,6 @@ async function index(req, res) {
     res.render('books/index', { title: 'Your Books', books});
 
 }
-
 async function show(req, res) {
     const book = await Book.findById(req.params.id);
     //console.log(book);
@@ -40,3 +40,10 @@ async function create(req, res) {
     }
 
 }
+
+/*async function addStatus(req, res) {
+    const book = await book.findById(req.params.id);
+    book.readStatus.push(req.body);
+    await book.save();
+    res.redirect(`/books/${book._id}`);
+}*/

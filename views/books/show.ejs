@@ -11,6 +11,7 @@
     <div><%= book.genre %></div>
     <div>Hardcover: </div>
     <div><%= book.hardcover ? 'Yes' : 'No' %></div>
+
 </section>
 
 <!--------Adding book status update
@@ -65,7 +66,11 @@ Considering to include the status option with each comment left instead.
             <td><%= c.readStatus %></td>
             <td><%= c.content %></td>
             <td><%= c.createdAt.toLocaleDateString() %></td>
-            <td></td>
+            <td>
+                <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
+                    <button type="submit">x</button>
+                </form>
+            </td>
         </tr>
         <% }); %>
 </tbody>

@@ -14,19 +14,7 @@
 
 </section>
 
-<!--------Adding book status update
-<form action="/books/<%= book.id %>/readStatus=PUT" method="POST">
-    <label for="readStatus">Reading Status</label>
-    <select>
-        <option value="Current Read">Current Read</option>
-        <option value="To Be Read">To Be Read</option>
-        <option value="Completed">Completed</option>
-    </select>
-    <button type="submit">Status</button>
-</form>
 
-Considering to include the status option with each comment left instead.
--->
 
 
 <!--Add comment feature-->
@@ -36,12 +24,12 @@ Considering to include the status option with each comment left instead.
     <label></label>
     <textarea name="content"></textarea>
     <label>Reading Status:</label>
-    <select name="readStatus">
+    <select name="readStatus" class="status">
       <option value="Current Read">Current Read</option>
       <option value="To Be Read">To Be Read</option>
       <option value="Completed">Completed</option>
     </select>
-    <input type="submit" value="Add Comment">
+    <input class="add-btn" type="submit" value="Add Comment">
   </form>
 
 <!---<%= book._id %>/-->
@@ -63,18 +51,16 @@ Considering to include the status option with each comment left instead.
         
         <tr>
             <td class="comment-user"><img src=" <%= c.userAvatar %>" alt="avatar" referrerpolicy="no-referrer"><%= c.userName %></td>
-            <td><%= c.readStatus %></td>
+            <td id="readstat"><%= c.readStatus %></td>
             <td><%= c.content %></td>
-            <td><%= c.createdAt.toLocaleDateString() %></td>
-            <td>
-            </td>
+            <td"><%= c.createdAt.toLocaleDateString() %></td>
             <td>
                 <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
                     <button type="submit">x</button>
                 </form>
             </td>
+            <td><button type="submit" class="edit-btn"> <a href="/books/<%= c._id %>/comments/edit ">Edit Comment</a></button></td>
         </tr>
-<button type="submit"> <a href="/books/<%= c._id %>/comments/edit ">Edit Comment</a></button>
         <% }); %>
 </tbody>
 <%- include('../partials/footer') %>

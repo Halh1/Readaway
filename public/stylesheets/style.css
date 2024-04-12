@@ -11,7 +11,7 @@ body {
 
 
 a {
-  color: #E96479;
+  color:  #7e7197;
 }
 
 #logout {
@@ -59,7 +59,15 @@ nav > a.active {
   height: 20px;
 }
 
+section {
 
+  padding-top: 15%;
+  border-radius: 30px; 
+  color: #EEA5A6; 
+  text-decoration:none; 
+  letter-spacing: 2px; 
+
+}
 
 h1 {
   font-size: 40px;
@@ -77,7 +85,16 @@ h1 {
   align-items: center;
 }
 
+.comment-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.comment-user img {
+  border-radius: 50%;
+  height: 40px;
+}
 
 table {
   font-size: 20px;
@@ -146,18 +163,157 @@ footer {
 #new-form {
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: repeat(2, minmax(auto, 22rem));
+  grid-template-columns: repeat(2, minmax(auto, 16rem));
+  padding-top: 15%;
+  padding-left: 15%;
 }
 
 #new-form *,
 #add-comment-form {
-  font-size: 20px;
+  font-size: 15px;
   padding: 5px;
   border-radius: 5px;
+  color: #E96479;
 }
 
 #new-form input[type="submit"] {
   grid-column: span 2;
   width: 10rem;
   margin-left: auto;
+}
+
+.addbook {
+  margin: 40px 0 0 48%;
+  background: #7e7197;
+  background-size: 200% 100%;
+  border: none;
+  border-radius: 6px;
+  box-shadow: -2px -2px 10px rgba(255, 227, 126, 0.5), 2px 2px 10px rgba(144, 148, 255, 0.5);
+  color: #E96479;
+  cursor: pointer;
+  font-family: "Special Elite", 'Times New Roman', Times, serif;
+  font-size: 15px;
+  position: relative;
+
+  display: block;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 8px;
+  width: 55%; 
+  max-width: 200px; 
+  border-radius: 8px; 
+  color: #EEA5A6; 
+  text-decoration: none; 
+  letter-spacing: 1px; 
+  transition: all 0.2s ease-out;
+}
+
+#show-page {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 15px;
+  font-weight:900;
+  font-size: 20px;
+  color: #E96479;
+  text-align: left;
+  margin: 0 0 2rem;
+  padding: 15px;
+}
+
+#show-page div:nth-child(even) {
+  font-weight: bold;
+  font-size: 18px;
+  color: #E96479;
+  padding-right: 70%;
+  
+}
+.status {
+  width: 200px;
+  border-radius: 5px;
+}
+.add-btn {
+  margin: 40px 0 0 48%;
+  background: #7e7197;
+  background-size: 200% 100%;
+  border: none;
+  border-radius: 6px;
+  box-shadow: -2px -2px 10px rgba(255, 227, 126, 0.5), 2px 2px 10px rgba(144, 148, 255, 0.5);
+  cursor: pointer;
+  font-family: "Special Elite", 'Times New Roman', Times, serif;
+  font-size: 15px;
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 8px;
+  width: 55%; 
+  max-width: 200px; 
+  border-radius: 8px; 
+  color: #EEA5A6; 
+  text-decoration: none; 
+  letter-spacing: 1px; 
+  transition: all 0.2s ease-out;
+}
+textarea {
+  width: 800px;
+  height: 150px;
+  border-radius: 9px;
+  background-color: #F5E9CF;
+  font-family: "Special Elite", 'Times New Roman', Helvetica, Arial, sans-serif;
+}
+
+#add-comment-form {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+#add-comment-form input[type="submit"] {
+  width: 10rem;
+  grid-column: 2 / 3;
+}
+
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 34px;
+}
+
+.login img {
+  height: 30px;
+}
+
+
+.edit-btn {
+  margin: 40px 0 0 48%;
+  background: #7e7197;
+  background-size: 200% 100%;
+  border: none;
+  border-radius: 6px;
+  box-shadow: -2px -2px 10px rgba(255, 227, 126, 0.5), 2px 2px 10px rgba(144, 148, 255, 0.5);
+  color: #EEA5A6;
+  cursor: pointer;
+  font-family: "Special Elite", 'Times New Roman', Times, serif;
+  font-size: 15px;
+  position: relative;
+
+  display: block;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 8px;
+  width: 55%; 
+  max-width: 200px; 
+  border-radius: 8px; 
+  text-decoration: none; 
+  letter-spacing: 1px; 
+  transition: all 0.2s ease-out;
+}
+
+#readstat {
+  color: #7e7197;
 }

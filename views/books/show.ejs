@@ -67,11 +67,14 @@ Considering to include the status option with each comment left instead.
             <td><%= c.content %></td>
             <td><%= c.createdAt.toLocaleDateString() %></td>
             <td>
+            </td>
+            <td>
                 <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
                     <button type="submit">x</button>
                 </form>
             </td>
         </tr>
+<button type="submit"> <a href="/books/<%= c._id %>/comments/edit ">Edit Comment</a></button>
         <% }); %>
 </tbody>
 <%- include('../partials/footer') %>

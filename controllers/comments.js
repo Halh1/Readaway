@@ -2,7 +2,9 @@ const Book = require('../models/book');
 
 module.exports = {
     create,
-    delete: deleteComment
+    delete: deleteComment,
+    edit,
+    update
 }
 
 async function deleteComment(req, res) {
@@ -35,10 +37,27 @@ async function create(req, res) {
     res.redirect(`/books/${book._id}`);
 }
 
+async function edit(req, res) {
+    const book = await Book.findOne({ 'comments._id':req.params.id });
+    console.log('hi', book);
+    const comment = book.comments.id(req.params.id);
+    console.log("comment", comment);
+    res.render('comments/edit', { title: 'Edit Comment', book, comment });
+}
 
-/* const book = await Book.findOne({ 'comments._id': req.params.id, 'comments.userId': req.user._id });
-    if(!book) return res.redirect(`/books/${book._id}`);
 
-    book.comments.remove(req.params.id);
+async function update(req, res) {
+    const book = await Book.findOne({ 'comments._id':req.params.id });
+    const comment = book.comments.id(req.params.id);
+    console.log("before", comment);
+    console.log(req.user._id);
 
-    await book.save();*/
+    if (comment.user.equals(req.user._id)) {
+        comment.content = req.body.content;
+        await comment.save();
+        await book.save(); 
+        console.log("after", comment);
+    }
+    
+    res.redirect(`/books/${book._id}`);
+}

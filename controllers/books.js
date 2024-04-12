@@ -18,7 +18,7 @@ async function deleteBook(req, res) {
 async function index(req, res) {
     const books = await Book.find({});
     
-    res.render('books/index', { title: 'Your Books', books});
+    res.render('books/index', { title: 'Books', books});
 
 }
 async function show(req, res) {

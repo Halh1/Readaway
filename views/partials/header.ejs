@@ -13,7 +13,7 @@
     <nav>
         <% if (user) { %>
         <a href="/" 'class="active"'>🏠Home</a> 
-        <a href="/books" <%- title === 'Your Books' ? 'class="active"' : '' %>>📚Your Books</a>
+        <a href="/books" <%- title === 'Books' ? 'class="active"' : '' %>>📚Books</a>
         <a href="/books/new"<%- title === 'Add Book' ? 'class="active"' : '' %>>➕Add Book</a>
         <a href="/logout" id="logout">Log Out</a>
         <% } else { %>

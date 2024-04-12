@@ -1,8 +1,10 @@
 
 <%- include('../partials/header') %>
+<% if (user) { %>
     <form action="/comments/<%= comment._id %>?_method=PUT" method="POST">
        <br><label for="" class="update-label">Update Comment:</label>
         <br><br><textarea name="content" placeholder="<%= comment.content %>"></textarea>
         <button type="submit" class="update-btn">Update Comment</button>
     </form>
+    <% } %>
 <%- include('../partials/footer') %>

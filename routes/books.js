@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const booksCtrl = require('../controllers/books')
+const ensureLoggedIn = require('../config/ensureLoggedIn');
 
 /* GET users listing. */
 /*router.get('/', function(req, res, next) {
@@ -8,15 +9,15 @@ const booksCtrl = require('../controllers/books')
 });*/
 
 //GET /books
-router.get('/', booksCtrl.index);
+router.get('/', ensureLoggedIn, booksCtrl.index);
 
-router.get('/new', booksCtrl.new);
+router.get('/new', ensureLoggedIn, booksCtrl.new);
 
-router.post('/new', booksCtrl.create);
+router.post('/new',  ensureLoggedIn, booksCtrl.create);
 
-router.get('/:id', booksCtrl.show);
+router.get('/:id', ensureLoggedIn, booksCtrl.show);
 
-router.delete('/:id', booksCtrl.delete);
+router.delete('/:id', ensureLoggedIn, booksCtrl.delete);
 
 
 

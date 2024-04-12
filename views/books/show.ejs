@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-
+<% if (user) { %>
 <section id="show-page">
     <div>Title: </div>
     <div><%= book.title %></div>
@@ -66,4 +66,5 @@
 
 </tbody>
 </table>
+<% } %>
 <%- include('../partials/footer') %>

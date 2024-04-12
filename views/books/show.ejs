@@ -55,11 +55,13 @@
             <td><%= c.createdAt.toLocaleDateString() %></td>
             <td id="readstat"><%= c.readStatus %></td>
             <td><%= c.content %></td>
+            <% if (user?._id.equals(user)) { %>
             <td><button type="submit" class="edit-btn"><a href="/books/<%= c._id %>/comments/edit ">Edit</a></button></td>
             <td>
                 <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
                     <button type="submit">x</button>
                 </form>
+            <% } %>
             </td>
         </tr>
         <% }); %>

@@ -38,29 +38,32 @@
     <thead>
         <tr>
             <th>User</th>
+            <th>Date</th>
             <th>Reading Status</th>
             <th>Commentary</th>
-            <th>Date</th>
-            <th></th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
     </thead>
-</table>
+
 <tbody>
 
     <% book.comments.forEach(function(c) { %>
         
         <tr>
-            <td class="comment-user"><img src=" <%= c.userAvatar %>" alt="avatar" referrerpolicy="no-referrer"><%= c.userName %></td>
+            <td class="comment-user"><%= c.userName %></td>
+            <td><%= c.createdAt.toLocaleDateString() %></td>
             <td id="readstat"><%= c.readStatus %></td>
             <td><%= c.content %></td>
-            <td"><%= c.createdAt.toLocaleDateString() %></td>
+            <td><button type="submit" class="edit-btn"><a href="/books/<%= c._id %>/comments/edit ">Edit</a></button></td>
             <td>
                 <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
                     <button type="submit">x</button>
                 </form>
             </td>
-            <td><button type="submit" class="edit-btn"> <a href="/books/<%= c._id %>/comments/edit ">Edit Comment</a></button></td>
         </tr>
         <% }); %>
+
 </tbody>
+</table>
 <%- include('../partials/footer') %>

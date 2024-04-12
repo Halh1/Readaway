@@ -5,18 +5,25 @@ module.exports = {
     new: newBook,
     create,
     show,
-   // update
-   // addStatus
+    delete: deleteBook
+}
+
+async function deleteBook(req, res) {
+    await Book.findOneAndDelete(
+        {_id: req.params.id }
+    );
+    res.redirect('/books')
 }
 
 async function index(req, res) {
     const books = await Book.find({});
+    
     res.render('books/index', { title: 'Your Books', books});
 
 }
 async function show(req, res) {
     const book = await Book.findById(req.params.id);
-    //console.log(book);
+    
     res.render('books/show', {title: 'Book Detail', book });
 }
 
@@ -41,31 +48,4 @@ async function create(req, res) {
     }
 
 }
-/*async function update(req, res) {
-    try {
-        const book = await Book.findById(req.params.id);
-        const updateBook = await Book.findOneAndUpdate(book, req.body);
-        if(!updateBook){
-            res.render('books/index')
-        }
-        res.redirect(`/books/${book._id}`);
-        
-    } catch(err) {
-        console.log(err);
-        res.render('books/index');
-    }
-}
 
-/*async function addStatus(req, res) {
-    const book = await book.findById(req.params.id);
-    book.readStatus.push(req.body);
-    await book.save();
-    res.redirect(`/books/${book._id}`);
-}*/
-
-/*const updateBook = await Book.findOneAndUpdate(
-    {_id: req.params.id, userReccommending: req.user._id},
-    req.body,
-    {new: true}
-);
-res.redirect(`/books/${updateBook._id}`);*/
